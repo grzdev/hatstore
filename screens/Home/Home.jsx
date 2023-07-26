@@ -4,10 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import styles from './home.style'
 import { Ionicons, MaterialIcons  } from "@expo/vector-icons"
 import { Banner } from '../../components'
-import { COLORS } from '../../constants'
+import { COLORS, SIZES } from '../../constants'
 import Carousel from '../../components/home/carouselBanner/Carousel'
 import Headings from '../../components/home/headings/Headings'
 import ProductRow from '../../components/products/ProductRows/ProductRow'
+import Carousel2 from '../../components/home/carouselBanner2/Carousel2'
 
 const Home = () => {
   return (
@@ -50,9 +51,17 @@ const Home = () => {
       {/* Main Section */}
       <ScrollView>
         <Banner/>
+        <Carousel2/>
+        <Headings/>
+        {/* <ProductRow/> */}
         <Carousel/>
         <Headings/>
-        <ProductRow/>
+        {/* <ProductRow/> */}
+        <View
+          style={{marginBottom: 90}}
+        >
+          {/* <Carousel/> */}
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
