@@ -16,14 +16,14 @@ const Banner = () => {
         style={styles.container}
       >
         <Text 
-          style={styles.welcomeText(COLORS.black, SIZES.xSmall)}
+          style={styles.welcomeText}
         >
-          everything
+          stzhub
         </Text>
         <Text 
-          style={styles.welcomeText(COLORS.primary, 0)}
+          style={styles.welcomeText2}
         >
-         stz related
+         home to everything stz related
         </Text>
       </View>
 

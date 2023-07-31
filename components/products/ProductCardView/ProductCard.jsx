@@ -4,13 +4,14 @@ import styles from './productCard.style'
 import { Ionicons } from "@expo/vector-icons"
 import { COLORS } from '../../../constants'
 import { useNavigation } from '@react-navigation/native'
+import blank from "../../../assets/images/blank.png"
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
     const navigation = useNavigation()
 
   return (
     <TouchableOpacity
-      onPress={()=> navigation.navigate("ProductDetails")}
+      onPress={()=> navigation.navigate("ProductDetails", {item})}
     >
       <View
         style={styles.container}
@@ -19,7 +20,9 @@ const ProductCard = () => {
             style={styles.imageContainer}
         >
          <Image
-            source={{uri: "https://i.pinimg.com/236x/6e/ed/35/6eed354e6b76c028e6206a66c0e62014.jpg"}}
+            source={{
+              uri: item.imageUrl,
+            }}
             style={styles.image}
          />
         </View>
@@ -30,13 +33,13 @@ const ProductCard = () => {
                 style={styles.title}
                 numberOfLines={1}
             >
-                Crusher
+              {item.title}
             </Text>
             <Text
                 style={styles.price}
                 numberOfLines={1}
             >
-                $40
+              ₦{item.price}
             </Text>
         </View>
         <TouchableOpacity
@@ -44,7 +47,7 @@ const ProductCard = () => {
         >
             <Ionicons
                 name='add-circle'
-                size={35}
+                size={40}
                 color={COLORS.primary}
             />
         </TouchableOpacity>

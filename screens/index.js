@@ -4,6 +4,7 @@ import Profile from "./Profile/Profile";
 import Cart from "./Cart/Cart";
 import ProductDetails from "./Products/ProductDetails"
 import Content from "./Content/Content";
+import TopPicks from "./TopPicks/TopPicks";
 
 export {
     Profile,
@@ -11,5 +12,6 @@ export {
     Home,
     Cart,
     ProductDetails,
-    Content
+    Content,
+    TopPicks
 }

@@ -7,13 +7,20 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    welcomeText: (color, top) => ({
+    welcomeText: ({
         fontFamily: "bold",
         fontSize: SIZES.xxLarge -5,
-        marginTop: top,
-        color: color,
+        marginTop: SIZES.xSmall -15,
+        color: COLORS.black,
         marginHorizontal: 12 
     }),
+    welcomeText2:{
+        fontFamily: "bold",
+        fontSize: SIZES.large,
+        marginTop: SIZES.xSmall -15,
+        color: COLORS.primary,
+        marginHorizontal: 12 
+    },
     searchContainer: {
         flexDirection: "row",
         justifyContent: "center",
