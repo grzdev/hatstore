@@ -5,6 +5,7 @@ import { Fontisto, Ionicons, SimpleLineIcons, MaterialCommunityIcons } from "@ex
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { COLORS, SIZES } from '../../constants'
 import blank from "../../assets/images/blank.png"
+import { useRoute } from '@react-navigation/native'
 
 const ProductDetails = ({navigation}) => {
   const [count, setCount] = useState(1)
@@ -16,6 +17,9 @@ const ProductDetails = ({navigation}) => {
       setCount(count - 1)
     }
   }
+
+  const route = useRoute();
+  const {item} = route.params;
 
   return (
     <View
@@ -31,6 +35,7 @@ const ProductDetails = ({navigation}) => {
           <Ionicons
             name='chevron-back-circle'
             size={30}
+            color={COLORS.lightWhite}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -39,16 +44,20 @@ const ProductDetails = ({navigation}) => {
           <Ionicons
             name='heart'
             size={30}
-            color={COLORS.primary}
+            color={COLORS.secondary}
           />
         </TouchableOpacity>
       </View>
 
       {/* Product image */}
+      <View
+        style={styles.imageContainer}
+      >
       <Image
-        source={{uri:"https://i.pinimg.com/236x/6e/ed/35/6eed354e6b76c028e6206a66c0e62014.jpg"}}
+        source={{uri: item.imageUrl}}
         style={styles.image}
       />
+      </View>
 
       {/* Title Row */}
       <View
@@ -60,7 +69,7 @@ const ProductDetails = ({navigation}) => {
           <Text
             style={styles.title}
           > 
-            Lighter
+            {item.title}
           </Text>
           <View
             style={styles.priceWrapper}
@@ -68,7 +77,7 @@ const ProductDetails = ({navigation}) => {
             <Text
               style={styles.price}
             > 
-              $400
+              ₦{item.price}
             </Text>
           </View>
         </View>
@@ -134,14 +143,11 @@ const ProductDetails = ({navigation}) => {
           <Text
             style={styles.descText}
           >
-            A cool ass lighter that can burn your house down. 
-            A cool ass lighter that can burn your house down.
-            A cool ass lighter that can burn your house down.
-            A cool ass lighter that can burn your house down.
-            A cool ass lighter that can burn your house down.
-            A cool ass lighter that can burn your house down.
+            {item.description}
           </Text>
         </View>
+        
+        <View style={styles.spacer} />
 
         {/* Location grid */}
         <View
@@ -155,10 +161,10 @@ const ProductDetails = ({navigation}) => {
             >
               <Ionicons
                 name='location-outline'
-                size={30}
+                size={20}
               />
               <Text
-                style={{alignSelf: "center"}}
+                style={{alignSelf: "center", marginLeft: 4, marginRight: 4}}
               >
                 Ilorin
               </Text>
@@ -169,10 +175,10 @@ const ProductDetails = ({navigation}) => {
             >
               <MaterialCommunityIcons
                 name='truck-delivery-outline'
-                size={30}
+                size={25}
               />
               <Text
-                style={{alignSelf: "center"}}
+                style={{alignSelf: "center", marginLeft: 10, marginRight: 10}}
               >
                 Free Delivery
               </Text>

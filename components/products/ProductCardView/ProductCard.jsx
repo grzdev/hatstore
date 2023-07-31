@@ -11,7 +11,7 @@ const ProductCard = ({item}) => {
 
   return (
     <TouchableOpacity
-      onPress={()=> navigation.navigate("ProductDetails")}
+      onPress={()=> navigation.navigate("ProductDetails", {item})}
     >
       <View
         style={styles.container}
@@ -20,7 +20,9 @@ const ProductCard = ({item}) => {
             style={styles.imageContainer}
         >
          <Image
-            source={blank}
+            source={{
+              uri: item.imageUrl,
+            }}
             style={styles.image}
          />
         </View>
@@ -37,7 +39,7 @@ const ProductCard = ({item}) => {
                 style={styles.price}
                 numberOfLines={1}
             >
-              {item.price}
+              ₦{item.price}
             </Text>
         </View>
         <TouchableOpacity
@@ -45,7 +47,7 @@ const ProductCard = ({item}) => {
         >
             <Ionicons
                 name='add-circle'
-                size={35}
+                size={40}
                 color={COLORS.primary}
             />
         </TouchableOpacity>

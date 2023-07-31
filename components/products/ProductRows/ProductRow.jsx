@@ -6,30 +6,28 @@ import ProductCard from '../ProductCardView/ProductCard'
 import useFetch from '../../../hooks/useFetch'
  
  const ProductRow = () => {
-  const {data, isloading, error} = useFetch()
-
   const  products = [1,2,3,4]
+  const { data, isLoading, error } = useFetch()
    return (
     <View
       style={{marginTop: SIZES.xSmall -12, padding: SIZES.small}}
     >
-      {isloading ? (
-          <ActivityIndicator
-            size={SIZES.xxLarge}
-            color={COLORS.primary}
-          />
-        ) : error ? (
-          <Text>Error: {JSON.stringify(error, null, 2)}</Text>
-        ) : (
-          <FlatList
+      { isLoading ? (
+        <ActivityIndicator
+          size={SIZES.xLarge}
+          color={COLORS.primary}
+        />
+      ) : error ? (
+        <Text>{JSON.stringify(error, null, 2)}</Text>
+      ) : (
+        <FlatList
             data={data}
             keyExtractor={(item)=> item._id}
-            renderItem={({item}) => <ProductCard item={item}/>}
+            renderItem={({ item }) => <ProductCard item={item}/>}
             horizontal
             contentContainerStyle={styles.rowBox}
           />
-        )
-      } 
+      )}
     </View>
    )
 

@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../constants";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.lightWhite,
+        backgroundColor: COLORS.primary,
      },
      upperRow: {
         marginHorizontal: 20,
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
      },
      image: {
         aspectRatio: 1,
-        resizeMode: "cover"
+        resizeMode: "center",
      },
      details: {
         marginTop: -SIZES.large,
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         width: SIZES.width,
         borderTopLeftRadius: 24, 
         borderTopRightRadius: 24,
+        height: SIZES.height
      },
      titleRow:{
         marginHorizontal: 20,
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: SIZES.xSmall,
         alignSelf: "center"
      },
+     
      descriptionWrapper:{
         marginTop: SIZES.large,
         marginHorizontal: SIZES.large
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
         fontFamily: "regular",
         textAlign: "justify",
         fontSize: SIZES.small+2,
-        marginBottom: SIZES.small,
+        marginBottom: SIZES.xxLarge +30,
         marginTop: SIZES.small-9,
      },
      location: {

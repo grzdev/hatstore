@@ -53,10 +53,10 @@ const Home = () => {
         <Banner/>
         <Carousel2/>
         <Headings/>
-        {/* <ProductRow/> */}
+        <ProductRow/>
         <Carousel/>
         <Headings/>
-        {/* <ProductRow/> */}
+        <ProductRow/>
         <View
           style={{marginBottom: 90}}
         >
