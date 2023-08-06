@@ -5,6 +5,10 @@ import Cart from "./Cart/Cart";
 import ProductDetails from "./Products/ProductDetails"
 import Content from "./Content/Content";
 import TopPicks from "./TopPicks/TopPicks";
+import Login from "./Login/Login";
+import Orders from "./Orders/Orders";
+import Favorites from "./Favorites/Favorites";
+import Register from "./Register/Register";
 
 export {
     Profile,
@@ -13,5 +17,9 @@ export {
     Cart,
     ProductDetails,
     Content,
-    TopPicks
+    TopPicks,
+    Login,
+    Orders,
+    Favorites,
+    Register
 }

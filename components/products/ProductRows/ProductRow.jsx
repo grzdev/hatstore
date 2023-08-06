@@ -13,10 +13,26 @@ import useFetch from '../../../hooks/useFetch'
       style={{marginTop: SIZES.xSmall -12, padding: SIZES.small}}
     >
       { isLoading ? (
-        <ActivityIndicator
-          size={SIZES.xLarge}
-          color={COLORS.primary}
-        />
+        <View
+          style={styles.loadingRow}
+        >
+          <View
+            style={styles.loadingContainer}
+          >
+            <ActivityIndicator
+              size={SIZES.xLarge}
+              color={COLORS.primary}
+            />
+          </View>
+          <View
+            style={styles.loadingContainer}
+          >
+            <ActivityIndicator
+              size={SIZES.xLarge}
+              color={COLORS.primary}
+            />
+          </View>
+        </View>
       ) : error ? (
         <Text>{JSON.stringify(error, null, 2)}</Text>
       ) : (

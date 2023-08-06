@@ -2,11 +2,27 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../../constants/index";
 
 const styles = StyleSheet.create({
-    loadingContainer: {
+    loadingRow: {
         flex: 1,
         alignItems: "center",
+        flexDirection: "row",
+        rowGap: 10,
+        columnGap: 5,
+        flexWrap: "wrap",
+        alignContent: "center",
         justifyContent: "center",
-        alignContent: "center"
+        marginTop: 130,
+        marginLeft: 10
+    },
+    loadingContainer: {
+        width: 150,
+        height: 230,
+        marginEnd: 22,
+        borderRadius: SIZES.medium,
+        backgroundColor: COLORS.secondary,
+        justifyContent: "center",
+        alignItems: "center",
+        // margin: 10, 
     },
     container: {
         alignItems: "center",
