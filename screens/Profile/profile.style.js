@@ -5,7 +5,7 @@ import { COLORS, SIZES } from '../../constants/index'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.lightWhite
+        backgroundColor: COLORS.primary
     },
     cover: {
         height: 290,
@@ -14,7 +14,13 @@ const styles = StyleSheet.create({
     },
     profileContainer: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    bgLogo : {
+        width: 180,
+        height: 80,
+        // resizeMode: "cover",
     },
     profile:{
         height: 130,
@@ -25,24 +31,64 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         marginTop: -80,
     },
+    profileText: {
+        fontFamily: "bold",
+        fontSize: 24,
+        marginTop: SIZES.small,
+        color: "#23e873",
+        marginHorizontal: 12,
+        width: 220,
+        textAlign: "center",
+        lineHeight: 27,
+        marginTop: 110,
+
+    },
     name: {
         fontFamily: "bold",
         color: COLORS.primary,
         marginVertical: 5
     },
+    btnBox: {
+        flexDirection: "row",
+        gap: 10,
+        marginTop: 200,
+    },
     loginBtn: {
-        backgroundColor: COLORS.secondary,
+        backgroundColor: COLORS.primary,
         padding: 2,
-        borderWidth: 0.4,
-        borderColor: COLORS.primary,
-        borderRadius: SIZES.xxLarge,
+        borderColor: "#ebe9e9",
+        borderRadius: SIZES.xSmall,
+        borderWidth: 1,
+        width: 140,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
     },
     menuText: {
-        fontFamily: "regular",
-        color: COLORS.gray,
-        marginLeft: 8,
+        fontFamily: "bold",
+        color: "#ebe9e9",
+        // marginLeft: 8,
         fontWeight: "600",
-        fontSize: 14,
+        fontSize: 16,
+        lineHeight: 26
+    },
+    loginBtn2: {
+        backgroundColor: "#ebe9e9",
+        padding: 2,
+        // borderColor: "#23e873",
+        borderRadius: SIZES.xSmall,
+        borderWidth: 1,
+        width: 140,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    menuText2: {
+        fontFamily: "bold",
+        color: COLORS.primary,
+        // marginLeft: 8,
+        fontWeight: "600",
+        fontSize: 16,
         lineHeight: 26
     },
     menuWrapper: {

@@ -10,9 +10,9 @@ const BackBtn = ({onPress}) => {
         style={styles.backBtn}
     >
         <Ionicons
-            name='chevron-back-circle'
-            size={30}
-            color={COLORS.primary}
+            name='close'
+            size={40}
+            color= "#23e873"
         />
     </TouchableOpacity>
   )
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         position: "absolute",
         zIndex: 999,
-        top: SIZES.large -10
+        top: SIZES.large ,
     }
 })

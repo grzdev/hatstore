@@ -9,8 +9,13 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.secondary,
         borderRadius: SIZES.medium,
         marginVertical: SIZES.medium, 
-        marginHorizontal: SIZES.small,
-        height: 50
+        marginHorizontal: SIZES.medium,
+        height: 50,
+        position: "absolute",
+        zIndex: 999,
+        width: SIZES.width,
+        paddingHorizontal: 40,
+        top: SIZES.xxLarge,
     },
     searchIcon: {
         marginHorizontal: 10,
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
         fontFamily: "regular",
         width: "100%",
         height: "100%",
-        paddingHorizontal: SIZES.small
+        marginLeft: - SIZES.large
     },
     searchBtn: {
         width: 50,
@@ -42,6 +47,22 @@ const styles = StyleSheet.create({
         width: SIZES.width -80,
         height: SIZES.height -300,
         opacity: 0.9
+    },
+    rowBox: {
+        marginTop: SIZES.xSmall -10,
+        borderTopLeftRadius: 14, // 1rem equivalent in pixels
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 14, // 1rem equivalent in pixels
+        borderBottomLeftRadius: 0,
+    },
+    productContainer: {
+        alignItems: "center",
+        paddingTop: 80,
+        paddingLeft: SIZES.small/2,
+        marginBottom: 60
+    },
+    seperator: {
+        height: 16,
     }
 })
 

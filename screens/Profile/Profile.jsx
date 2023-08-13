@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { COLORS } from '../../constants'
 import { AntDesign, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons"
-
+import bgLogo from "../../assets/images/bgLogo.png"
 
 const Profile = ({navigation}) => {
   const [ userData, setUserData ] = useState(null)
@@ -83,42 +83,58 @@ const Profile = ({navigation}) => {
           backgroundColor= { COLORS.gray }
         />
 
-        <View
-          style={{ width: "100%"}}
-        >
-          <Image
-            source={require("../../assets/images/profileCover2.png")}
-            style={styles.cover}
-          />
-        </View>
+        
         <View
           style={styles.profileContainer}
         >
+          
           <Image
-            source={require("../../assets/images/profile.png")}
-            style={styles.profile}
+            source={bgLogo}
+            style={styles.bgLogo}
           />
-
           <Text
+            style={styles.profileText}
+          >
+            Home to everything stz related
+          </Text>
+          {/* <Text
             style={styles.name}
           >
             {userLogin === true ? "Dami" : "Please login into your account"}
-          </Text>
+          </Text> */}
           {
             userLogin === false ? (
-              <TouchableOpacity
-                onPress={()=>navigation.navigate("Login")}
+              <View
+                style={styles.btnBox}
+              >
+                <TouchableOpacity
+                  onPress={()=>navigation.navigate("Login")}
+                >
+                  <View
+                    style={styles.loginBtn}
+                  >
+                    <Text
+                      style={styles.menuText}
+                    >
+                      LOGIN
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                onPress={()=>navigation.navigate("Register")}
               >
                 <View
-                  style={styles.loginBtn}
+                  style={styles.loginBtn2}
                 >
                   <Text
-                    style={styles.menuText}
+                    style={styles.menuText2}
                   >
-                    LOGIN
+                    SIGN UP
                   </Text>
                 </View>
               </TouchableOpacity>
+              </View>
             ) : (
               <View
                 style={styles.loginBtn}

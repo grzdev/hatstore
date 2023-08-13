@@ -3,18 +3,16 @@ import { COLORS, SIZES } from "../../constants";
 
 
 const styles = StyleSheet.create({
-    bgImg: {
-        height: SIZES.height /2,
-        width: SIZES.width -60,
-        resizeMode: "contain",
-        marginBottom: SIZES.small
+    container: {
+        backgroundColor: COLORS.primary,
     },
     title: {
         fontFamily: "bold",
-        fontSize: SIZES.large + 2,
-        color: COLORS.primary,
+        fontSize: SIZES.xLarge +5,
+        color: COLORS.lightWhite,
         alignItems: "center",
-        marginBottom: SIZES.small
+        marginBottom: SIZES.small,
+        marginTop: 190
     },
     wrapper: {
         marginBottom: 20,
@@ -22,10 +20,11 @@ const styles = StyleSheet.create({
     },
     label: {
         fontFamily: "regular",
-        fontSize: SIZES.small,
+        fontSize: SIZES.medium,
         marginBottom: 5,
         marginEnd: 5,
-        textAlign: "right"
+        textAlign: "left",
+        color: COLORS.lightWhite
     },
     inputWrapper: (borderColor) => ({
         borderColor: borderColor,
@@ -50,6 +49,7 @@ const styles = StyleSheet.create({
     registration: {
         marginTop: 5,
         textAlign: "center",
+        color: COLORS.lightWhite,
     }
 })
 

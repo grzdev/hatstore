@@ -7,11 +7,13 @@ import { Formik } from 'formik';
 import * as Yup from "yup"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { COLORS } from '../../constants';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Provide a valid email address').required('Required'),
     password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
+      .min(4, 'Password must be at least 8 characters')
       .required('Required'),
 });
 
@@ -38,31 +40,87 @@ const Login = ({navigation}) => {
             }
           ]
         )
-      }
+    }
+
+    const login = async (values) => {
+        setLoader(true)
+        try {
+            const endpoint = "https://drab-ruby-adder-vest.cyclic.app/api/login"
+            const data = values;
+
+            const response = await axios.post(endpoint, data)
+            if(response.status === 200){
+                setLoader(false)
+                setResponseData(response.data)
+
+                await AsyncStorage.setItem(`user${responseData._id}`, JSON.stringify(responseData))
+                await AsyncStorage.setItem("id", JSON.stringify(responseData._id))
+
+                navigation.replace("Bottom Navigation")
+            }else{
+                Alert.alert(
+                    "Error loging in",
+                    "Please provide valid credentials",
+                    [
+                      {
+                        text: "Cancel",
+                        onPress: ()=> {}
+                      },
+                      {
+                        text: "Continue",
+                        onPress: ()=> {}
+                      },
+                      {
+                        defaultIndex: 1
+                      }
+                    ]
+                )
+            }
+        } catch (error) {
+            Alert.alert(
+                "Error",
+                "Wrong email or password",
+                [
+                  {
+                    text: "Cancel",
+                    onPress: ()=> {}
+                  },
+                  {
+                    text: "Continue",
+                    onPress: ()=> {}
+                  },
+                  {
+                    defaultIndex: 1
+                  }
+                ]
+              )
+        } finally {
+            setLoader(false)
+        }
+    }
       
   return (
-    <ScrollView>
-        <SafeAreaView
-            style={{marginHorizontal: 20}}
-        >
-            <View>
+    <ScrollView
+        style={{backgroundColor: COLORS.primary, padding: 20}}
+    >
+        <SafeAreaView>
+            <View
+                style={styles.container}
+            >
                 <BackBtn
                     onPress={()=> navigation.goBack()}
                 /> 
-                <Image
-                    source={require("../../assets/images/bk.png")}
-                    style={styles.bgImg}
-                />
+                
                 <Text
                     style={styles.title}
                 >
-                    Unlimited Luxirous Accessories
+                    Jump right back in
                 </Text>
                 
                 <Formik
                     initialValues={{email: "", password: ""}}
                     validationSchema={validationSchema}
-                    onSubmit={(values)=> console.log(values)}
+                    onSubmit={(values)=> login(values)}
                 >
                     {({ handleChange, handleBlur,touched , handleSubmit, values, errors, isValid, setFieldTouched }) => (
                         <View>
@@ -151,15 +209,16 @@ const Login = ({navigation}) => {
                                 )}
                             </View>
                             <Button
+                                loader={loader}
                                 title={"L O G I N"}
                                 onPress={ isValid ? handleSubmit : invalidForm }
                                 isValid={isValid}
                             />
                             <Text
-                                onPress={()=> navigation.navigate("")}
+                                onPress={()=> navigation.navigate("Register")}
                                 style={styles.registration}
                             >
-                                Don't have an account? Register
+                                Don't have an account? Sign up
                             </Text>
                         </View>
                     )}

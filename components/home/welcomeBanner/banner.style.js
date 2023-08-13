@@ -16,10 +16,12 @@ const styles = StyleSheet.create({
     }),
     welcomeText2:{
         fontFamily: "bold",
-        fontSize: SIZES.large,
+        fontSize: 27,
         marginTop: SIZES.xSmall -15,
         color: COLORS.primary,
-        marginHorizontal: 12 
+        marginHorizontal: 12,
+        width: SIZES.width,
+        textAlign: "center"
     },
     searchContainer: {
         flexDirection: "row",

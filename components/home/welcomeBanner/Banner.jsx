@@ -15,20 +15,20 @@ const Banner = () => {
       <View 
         style={styles.container}
       >
-        <Text 
+        {/* <Text 
           style={styles.welcomeText}
         >
           stzhub
-        </Text>
-        <Text 
+        </Text> */}
+        {/* <Text 
           style={styles.welcomeText2}
         >
          home to everything stz related
-        </Text>
+        </Text> */}
       </View>
 
       {/* Search Box */}
-      <View
+      {/* <View
         style={styles.searchContainer}
       >
         <TouchableOpacity>
@@ -59,7 +59,7 @@ const Banner = () => {
             />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
 
      
     </View>

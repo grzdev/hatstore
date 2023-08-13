@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, View, TextInput, FlatList, Image, Text } from 'react-native'
+import { StyleSheet, TouchableOpacity, View, TextInput, FlatList, Image, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Feather, Ionicons } from  "@expo/vector-icons"
@@ -7,6 +7,8 @@ import styles from './search.style';
 import { useState } from 'react';
 import axios from 'axios';
 import SearchTile from '../../components/products/SearchPage/SearchTile';
+import { ProductCard } from '../../components';
+import useFetch from '../../hooks/useFetch';
 
 const Search = () => {
   const [ searchKey, setSearchKey ] = useState("")
@@ -21,60 +23,70 @@ const Search = () => {
       console.log("Failed to grt products", error);
     }
   }
+
+  const {data, isLoading, error} = useFetch(); 
+
   
   return (
-    <SafeAreaView>
-      <View 
-        style={styles.searchContainer}
-      >
-        <TouchableOpacity>
-          <Ionicons
-              name='camera-outline'
-            size={24}
-            style={styles.searchIcon}
-          />
-        </TouchableOpacity>
-        <View
-          style={styles.searchWrapper}
+    <SafeAreaView
+     style={{flex: 1}}
+    >
+      {/* <ScrollView> */}
+        <View 
+          style={styles.searchContainer}
         >
-          <TextInput
-            value={searchKey}
-            onChangeText={setSearchKey}
-            placeholder="what are you looking for"
-            style={styles.searchInput}
-          />
-        </View>
-        <View>
-          <TouchableOpacity
-            style={styles.searchBtn}
-            onPress={()=> handleSearch()}
-          >
-            <Feather
-            name='search'
-              size={SIZES.xLarge}
-              color={COLORS.lightWhite}
+          {/* <TouchableOpacity>
+            <Ionicons
+                name='camera-outline'
+              size={24}
+              style={styles.searchIcon}
             />
-          </TouchableOpacity>
-        </View>
-      </View> 
+          </TouchableOpacity> */}
+          <View
+            style={styles.searchWrapper}
+          >
+            <TextInput
+              value={searchKey}
+              onChangeText={setSearchKey}
+              placeholder="what are you looking for ?"
+              style={styles.searchInput}
+            />
+          </View>
+          <View>
+            <TouchableOpacity
+              style={styles.searchBtn}
+              onPress={()=> handleSearch()}
+            >
+              <Feather
+              name='search'
+                size={SIZES.xLarge}
+                color={COLORS.lightWhite}
+              />
+            </TouchableOpacity>
+          </View>
+        </View> 
 
-      {searchResults.length == 0 ? (
-        <View
-          style={{flex: 1}}
-        >
-          <Image
-            source={require('../../assets/images/Pose23.png')}
-            style={styles.searchImage}
+        {searchResults.length == 0 ? (
+          <View
+            style={styles.productContainer}
+          >
+              <FlatList
+                  data={data}
+                  numColumns={2}
+                  renderItem={({item}) => (<ProductCard item={item} />)}
+                  contentContainerStyle={styles.container}
+                  ItemSeparatorComponent={()=> <View style={styles.seperator}/>}
+              />
+          </View>
+        ) : (
+          <FlatList
+            data={searchResults}
+            keyExtractor={(item) => item._id}
+            renderItem={({item})=> (<SearchTile item={item}/>)}
+            style={{marginHorizontal: 12}}
           />
-        </View>
-      ) : (
-        <FlatList
-          data={searchResults}
-          keyExtractor={(item) => item._id}
-          renderItem={({item})=> (<SearchTile item={item}/>)}
-          style={{marginHorizontal: 12}}
-        />
-      )}
+        )}
+      {/* </ScrollView> */}
     </SafeAreaView>
   )
 }

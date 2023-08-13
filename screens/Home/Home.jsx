@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, View, ScrollView } from 'react-native'
+import { TouchableOpacity, Text, View, ScrollView, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import styles from './home.style'
@@ -9,8 +9,12 @@ import Carousel from '../../components/home/carouselBanner/Carousel'
 import Headings from '../../components/home/headings/Headings'
 import ProductRow from '../../components/products/ProductRows/ProductRow'
 import Carousel2 from '../../components/home/carouselBanner2/Carousel2'
+import logo from "../../assets/images/logo.png"
+import { useNavigation } from '@react-navigation/native'
 
 const Home = () => {
+  const navigation = useNavigation()
+  
   return (
     <SafeAreaView>
       {/* Navbar */}
@@ -20,12 +24,6 @@ const Home = () => {
         <View 
           style={styles.appBar}
         >
-          <Ionicons 
-            name='leaf' 
-            size={24}
-            style={{color: COLORS.primary}}
-          />
-
           <View 
             style={{alignItems: "flex-end"}}
           >
@@ -45,6 +43,20 @@ const Home = () => {
               />
             </TouchableOpacity>
           </View>
+          <Image
+            source={logo}
+            style={styles.logo}
+          />
+
+          <TouchableOpacity
+            onPress={()=> navigation.navigate("Search")}
+          >
+            <Ionicons 
+              name='search' 
+              size={26}
+              style={{color: COLORS.primary}}
+            />
+          </TouchableOpacity>
         </View>
       </View>
 
