@@ -22,7 +22,7 @@ const Headings = () => {
             new arrivals
         </Text>
         <TouchableOpacity
-          onPress={()=> navigation.navigate("ProductList")}
+          onPress={()=> navigation.navigate("AllProducts")}
         >
             <Ionicons
                 name='ios-grid'

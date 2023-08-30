@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, View, TextInput, FlatList, Image, Text, ScrollView } from 'react-native'
+import { StyleSheet, TouchableOpacity, View, TextInput, FlatList, Image, Text, ScrollView, ActivityIndicator } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Feather, Ionicons } from  "@expo/vector-icons"
@@ -26,6 +26,18 @@ const Search = () => {
 
   const {data, isLoading, error} = useFetch(); 
 
+    if(isLoading){
+        return (
+           <View
+            style={{flex: 1, justifyContent: "center", alignItems: "center"}}
+           >
+              <ActivityIndicator
+                size={SIZES.xxLarge}
+                color={COLORS.primary}
+              />
+           </View>
+        )
+    }
   
   return (
     <SafeAreaView
@@ -83,7 +95,7 @@ const Search = () => {
             data={searchResults}
             keyExtractor={(item) => item._id}
             renderItem={({item})=> (<SearchTile item={item}/>)}
-            style={{marginHorizontal: 12}}
+            style={{marginHorizontal: 12, marginTop: 80}}
           />
         )}
       {/* </ScrollView> */}

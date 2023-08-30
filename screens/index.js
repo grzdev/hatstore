@@ -3,12 +3,13 @@ import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import Cart from "./Cart/Cart";
 import ProductDetails from "./Products/ProductDetails"
-import Content from "./Content/Content";
 import TopPicks from "./TopPicks/TopPicks";
 import Login from "./Login/Login";
 import Orders from "./Orders/Orders";
 import Favorites from "./Favorites/Favorites";
 import Register from "./Register/Register";
+import Articles from "./Articles/Articles";
+import ArticlePage from "./ArticlePage/ArticlePage";
 
 export {
     Profile,
@@ -16,10 +17,11 @@ export {
     Home,
     Cart,
     ProductDetails,
-    Content,
+    Articles,
     TopPicks,
     Login,
     Orders,
     Favorites,
-    Register
+    Register,
+    ArticlePage
 }

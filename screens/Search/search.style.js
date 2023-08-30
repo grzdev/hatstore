@@ -58,12 +58,13 @@ const styles = StyleSheet.create({
     productContainer: {
         alignItems: "center",
         paddingTop: 80,
-        paddingLeft: SIZES.small/2,
+        paddingLeft: SIZES.small,
         marginBottom: 60
     },
     seperator: {
         height: 16,
-    }
+    },
+    
 })
 
 export default styles

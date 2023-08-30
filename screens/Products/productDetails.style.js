@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
         zIndex: 999,
         width: SIZES.width -44
      },
+     imageContainer: {
+      
+   },
      image: {
         aspectRatio: 1,
         resizeMode: "center",

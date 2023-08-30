@@ -10,7 +10,7 @@ import useFetch from '../../../hooks/useFetch'
   const { data, isLoading, error } = useFetch()
    return (
     <View
-      style={{marginTop: SIZES.xSmall -12, padding: SIZES.small}}
+      style={{marginTop: SIZES.xSmall -22, padding: SIZES.small}}
     >
       { isLoading ? (
         <View

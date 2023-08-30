@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily:"semibold",
-        fontSize: SIZES.medium,
+        fontSize: SIZES.large,
         color: COLORS.lightWhite,
-        marginLeft: 5
+        marginLeft: 10
     }
 })
 
