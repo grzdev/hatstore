@@ -11,12 +11,61 @@ const ProductList = () => {
     if(isLoading){
         return (
             <View
-                style={styles.loadingContainer}
+            style={styles.loadingRow}
             >
-              <ActivityIndicator
-                size={SIZES.xxLarge}
-                color={COLORS.primary}
-              />
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
+
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
+                
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
+                
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
+
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
+
+                <View
+                    style={styles.loadingContainer}
+                >
+                <ActivityIndicator
+                    size={SIZES.xxLarge}
+                    color={COLORS.primary}
+                />
+                </View>
             </View>
         )
     }

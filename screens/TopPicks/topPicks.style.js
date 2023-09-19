@@ -17,16 +17,16 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         position: "absolute",
-        backgroundColor: COLORS.primary,
+        backgroundColor: "#001d29",
         borderRadius: SIZES.large,
         top: SIZES.large,
         zIndex: 999
     },
     heading: {
         fontFamily:"semibold",
-        fontSize: SIZES.medium,
+        fontSize: SIZES.large,
         color: COLORS.lightWhite,
-        marginLeft: 5
+        marginLeft: 10
     }
 })
 

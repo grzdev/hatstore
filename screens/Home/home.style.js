@@ -2,6 +2,12 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants/index"
 
 const styles = StyleSheet.create({
+  logo: {
+    width: 100,
+    height: 50,
+    resizeMode: "cover",
+    // marginLeft: -12
+  },
   textStyle: {
     fontFamily: "bold",
     fontSize: 40
@@ -9,6 +15,7 @@ const styles = StyleSheet.create({
   appBarWrapper:{
     marginHorizontal: 22,
     marginTop: SIZES.small,
+    marginBottom: SIZES.small,
   },
   appBar: {
     flexDirection: "row",
