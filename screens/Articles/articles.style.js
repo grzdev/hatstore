@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         height: 60,
         // resizeMode: "cover",
         position: "fixed",
-        marginTop: 10
+        marginTop: 70
     },
     artcileDiv:{
         justifyContent: "center",

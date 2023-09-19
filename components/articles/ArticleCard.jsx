@@ -3,12 +3,12 @@ import React from 'react'
 import { COLORS, SIZES } from '../../constants'
 import { useNavigation } from '@react-navigation/native'
 
-const ArticleCard = () => {
+const ArticleCard = ({item}) => {
   const navigation = useNavigation()
 
   return (
     <TouchableOpacity
-      onPress={()=> navigation.navigate("ArticlePage")}
+      onPress={()=> navigation.navigate("ArticlePage", {item})}
     >
        <View
           style={styles.productCard}
@@ -19,7 +19,7 @@ const ArticleCard = () => {
             <Text
               style={styles.articleText}
             >
-              The rising tide of naija music
+              {item.title}
             </Text>
             <View
               style={styles.category}
