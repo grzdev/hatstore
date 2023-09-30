@@ -65,12 +65,22 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     menuText: {
-        fontFamily: "bold",
+        fontFamily: "regular",
         color: "#ebe9e9",
         // marginLeft: 8,
-        fontWeight: "600",
-        fontSize: 16,
-        lineHeight: 26
+        fontWeight: 500,
+        fontSize: 17,
+        lineHeight: 26,
+        marginLeft: 15
+    },
+    menuTextRed: {
+        fontFamily: "regular",
+        color: "#ff3c3c",
+        // marginLeft: 8,
+        fontWeight: 500,
+        fontSize: 17,
+        lineHeight: 26,
+        marginLeft: 15
     },
     loginBtn2: {
         backgroundColor: "#ebe9e9",
@@ -89,7 +99,7 @@ const styles = StyleSheet.create({
         // marginLeft: 8,
         fontWeight: "600",
         fontSize: 16,
-        lineHeight: 26
+        lineHeight: 26,
     },
     menuWrapper: {
         marginTop: SIZES.xLarge,
@@ -97,13 +107,50 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightWhite,
         borderRadius: 12
     },
-    menuItem: (borderBottomWidth) => ({
-        borderBottomWidth: borderBottomWidth,
+    menuItem: (borderWidth) => ({
+        borderWidth: borderWidth,
         flexDirection: "row",
-        paddingVertical: 15,
+        paddingVertical: 20,
         paddingHorizontal: 15,
-        borderColor: COLORS.gray
-    })
+        borderColor: COLORS.gray,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 0,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 10,
+    }),
+
+
+
+    profileWrapper: {
+        flex: 1,
+    },
+    upperRow:{
+        marginTop: 100,
+        flexDirection: "row",
+        gap: 120
+    },
+    upperRowTexts:{
+        flexDirection: "column"
+    },
+    title: {
+        color: COLORS.lightWhite,
+        fontSize: SIZES.large +10,
+        fontWeight: 700
+    },
+    username: {
+        color: COLORS.gray2,
+        fontSize: SIZES.large -2,
+        fontWeight: 500,
+        marginTop: 3
+    },
+    profileIcon: {
+        color: "#23e873",
+        marginTop: 15
+    },
+    optionWrapper: {
+        marginTop: 30,
+        gap: 20
+    }
 })
 
 export default styles

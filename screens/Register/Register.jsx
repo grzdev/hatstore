@@ -7,15 +7,13 @@ import * as Yup from "yup"
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons"
 import { COLORS, SIZES } from '../../constants';
 import styles from './register.style';
+import axios from 'axios';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Provide a valid email address').required('Required'),
     password: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .required('Required'),
-    location: Yup.string()
-    .min(3, 'Provide a valid location')
-    .required('Required'),
     username: Yup.string()
     .min(3, 'Provide a valid username')
     .required('Required'),
@@ -45,6 +43,23 @@ const Register = ({navigation}) => {
       )
     }
 
+  const registerUser = async (values) => {
+    setLoader(true);
+
+    try {
+        const endpoint = 'https://drab-ruby-adder-vest.cyclic.app/api/register';
+        const data = values;
+
+        const response = await axios.post(endpoint, data)
+
+        if(response.status === 201){
+            navigation.replace('Login')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
   return (
     <ScrollView
         style={{backgroundColor: COLORS.primary, padding: 20}}
@@ -63,9 +78,9 @@ const Register = ({navigation}) => {
             </Text>
             
             <Formik
-                initialValues={{email: "", password: "", location: "", username: ""}}
+                initialValues={{email: "", password: "",username: ""}}
                 validationSchema={validationSchema}
-                onSubmit={(values)=> console.log(values)}
+                onSubmit={(values)=> registerUser(values)}
             >
                 {({ handleChange, handleBlur,touched , handleSubmit, values, errors, isValid, setFieldTouched }) => (
                     <View>
@@ -145,44 +160,6 @@ const Register = ({navigation}) => {
                             )}
                         </View>
 
-                        {/* Location Input */}
-                        <View
-                            style={styles.wrapper}
-                        >
-                            <Text
-                                style={styles.label}
-                            >
-                                Location
-                            </Text>
-                            <View
-                                style={styles.inputWrapper(touched.location ? COLORS.primary: COLORS.offwhite)}
-                            >
-                             <Ionicons
-                                name='location'
-                                size={20}
-                                color= {COLORS.gray}
-                                style={styles.iconStyle}
-                             />
-                             <TextInput
-                                placeholder='Enter location'
-                                onFocus={()=> {setFieldTouched("location")}}
-                                onBlur={()=> {setFieldTouched("location", "")}}
-                                value={values.location}
-                                onChangeText={handleChange("location")}
-                                autoCapitalize='none'
-                                autoCorrect= {false}
-                                style={{flex: 1}}
-                             />
-                            </View>
-                            {touched.location && errors.location && (
-                                <Text
-                                    style={styles.errorMessage}
-                                >
-                                    {errors.location}
-                                </Text>
-                            )}
-                        </View>
-
                         {/* Password Input */}
                         <View
                             style={styles.wrapper}
@@ -232,6 +209,7 @@ const Register = ({navigation}) => {
                         <Button
                             title={"S I G N U P"}
                             onPress={ isValid ? handleSubmit : invalidForm }
+                            loader={loader}
                             isValid={isValid}
                         />
                         <Text
