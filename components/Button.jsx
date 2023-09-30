@@ -6,19 +6,17 @@ const Button = ({title, onPress, isValid, loader}) => {
   return (
     <TouchableOpacity
         onPress={onPress}
-        style={styles.btnStyle(isValid === false ? "#0b5428" : "#129446")}
+        style={styles.btnStyle(!isValid ? "#585858" : "#129446")}
     >
         {
-            loader === false ? (
+            !loader ? (
                 <Text
                     style={styles.btnText}
                 >
                     {title}
                 </Text>
             ) : (
-                <ActivityIndicator
-
-                />
+                <ActivityIndicator/>
             )
         }
     </TouchableOpacity>

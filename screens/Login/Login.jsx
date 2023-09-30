@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Provide a valid email address').required('Required'),
     password: Yup.string()
-      .min(4, 'Password must be at least 8 characters')
+      .min(8, 'Password must be at least 8 characters')
       .required('Required'),
 });
 
@@ -55,7 +55,7 @@ const Login = ({navigation}) => {
 
                 await AsyncStorage.setItem(`user${responseData._id}`, JSON.stringify(responseData))
                 await AsyncStorage.setItem("id", JSON.stringify(responseData._id))
-
+                await AsyncStorage.setItem("token", JSON.stringify(responseData.token))
                 navigation.replace("Bottom Navigation")
             }else{
                 Alert.alert(
