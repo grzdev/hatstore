@@ -63,5 +63,3 @@ const Cart = ({navigation}) => {
 }
 
 export default Cart
-
-const styles = StyleSheet.create({})
