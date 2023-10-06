@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
         resizeMode: "center",
      },
      details: {
-        marginTop: -SIZES.large,
+        marginTop: -SIZES.xxLarge,
         backgroundColor: COLORS.lightWhite,
         width: SIZES.width,
         borderTopLeftRadius: 24, 
         borderTopRightRadius: 24,
-        height: SIZES.height
+        height: SIZES.height 
      },
      titleRow:{
         marginHorizontal: 20,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         fontFamily: "regular",
         textAlign: "justify",
         fontSize: SIZES.small+2,
-        marginBottom: SIZES.xxLarge +30,
+        marginBottom: SIZES.xSmall +25,
         marginTop: SIZES.small-9,
      },
      location: {

@@ -4,6 +4,8 @@ import ProductCard from "./products/ProductCardView/ProductCard"
 import BackBtn from "./BackBtn"
 import Button from "./Button"
 import AllProducts from "./products/AllProducts/AllProducts"
+import CartTitle from "./carts/CartTitle"
+import OrderTile from "./orders/OrderTile"
 
 export {
     Banner,
@@ -12,5 +14,6 @@ export {
     BackBtn,
     Button,
     AllProducts,
-    // ArticleCard
+    CartTitle,
+    OrderTile
 }

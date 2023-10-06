@@ -20,8 +20,8 @@ const screenOptions = {
     height: 80,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   }
 }
 
@@ -36,7 +36,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({focused}) => {
             return <Ionicons name={focused ? "home" : "home-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 15}}/>
+            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
           }
         }}
       />
@@ -46,7 +46,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({focused}) => {
             return <Ionicons name={"search-sharp"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 15}}/>
+            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
           }
         }}
       />
@@ -56,7 +56,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({focused}) => {
             return <Ionicons name={focused ? "newspaper" : "newspaper-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 15}}/>
+            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
           }
         }}
       />
@@ -66,7 +66,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({focused}) => {
             return <Ionicons name={focused ? "person" : "person-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 15}}/>
+            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
           }
         }}
       />

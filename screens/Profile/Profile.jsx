@@ -7,11 +7,50 @@ import { StatusBar } from 'expo-status-bar'
 import { COLORS } from '../../constants'
 import { AntDesign, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons"
 import bgLogo from "../../assets/images/bgLogo.png"
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const Profile = ({navigation}) => {
   const [ userData, setUserData ] = useState(null)
   const [ userLogin, setUserLogin ] = useState(false)
  
+<<<<<<< Updated upstream
+=======
+  const userLogout = async () => {
+    const id = await AsyncStorage.getItem('id')
+    const useId = `user${JSON.parse(id)}`;
+
+    try {
+      await AsyncStorage.multiRemove([useId, "id"])
+      navigation.replace("Bottom Navigation")
+    } catch (error) {
+      console.log("Error logging out:", error)
+    }
+  }
+ 
+  const userLogout = async () => {
+    const id = await AsyncStorage.getItem('id')
+    const useId = `user${JSON.parse(id)}`;
+
+    try {
+      await AsyncStorage.multiRemove([useId, "id"])
+      navigation.replace("Bottom Navigation")
+    } catch (error) {
+      console.log("Error logging out:", error)
+    }
+  }
+
+  const cacheClear = async () => {
+    const id = await AsyncStorage.getItem('id')
+    const userId = `favorites${JSON.parse(id)}`;
+
+    try {
+      await AsyncStorage.removeItem(userId)
+    } catch (error) {
+      console.log("Error logging out:", error)
+    }
+  }
+
   const logout = () => {
     Alert.alert(
       "Logout",
@@ -43,7 +82,7 @@ const Profile = ({navigation}) => {
         },
         {
           text: "Continue",
-          onPress: ()=> console.log("cache cleared")
+          onPress: ()=> cacheClear()
         },
         {
           defaultIndex: 1
@@ -154,8 +193,9 @@ const Profile = ({navigation}) => {
 
               </View>
             ) : (
-              <View
-                style={styles.menuWrapper}
+
+              <ScrollView
+                style={styles.profileWrapper}
               >
                 <TouchableOpacity
                   onPress={()=>navigation.navigate("Favorites")}
@@ -258,19 +298,24 @@ const Profile = ({navigation}) => {
                   <View
                     style={styles.menuItem(0.2)}
                   >
-                    <AntDesign
-                      name='logout'
-                      size={24}
-                      color= {COLORS.red}
-                    />
-                    <Text
-                      style={styles.menuText}
+                    <View
+                      style={styles.menuItem(0.5)}
                     >
-                      Logout
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
+                      <AntDesign
+                       name='logout'
+                        size={26}
+                        color= {"#ff3c3c"}
+                        style={{marginLeft: 10}}
+                      />
+                      <Text
+                        style={styles.menuTextRed}
+                      >
+                       Logout
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </ScrollView>
             )
           }
         </View>

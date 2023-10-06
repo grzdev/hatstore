@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     btnBox: {
         flexDirection: "row",
         gap: 10,
-        marginTop: 200,
+        marginTop: 140,
     },
     loginBtn: {
         backgroundColor: COLORS.primary,
@@ -102,8 +102,45 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         paddingVertical: 15,
         paddingHorizontal: 15,
-        borderColor: COLORS.gray
-    })
+        borderColor: COLORS.gray,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 0,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 10,
+    }),
+
+
+
+    profileWrapper: {
+        flex: 1,
+    },
+    upperRow:{
+        marginTop: 100,
+        flexDirection: "row",
+        gap: 120
+    },
+    upperRowTexts:{
+        flexDirection: "column"
+    },
+    title: {
+        color: COLORS.lightWhite,
+        fontSize: SIZES.large +10,
+        fontWeight: 700
+    },
+    username: {
+        color: COLORS.gray2,
+        fontSize: SIZES.large -2,
+        fontWeight: 500,
+        marginTop: 3
+    },
+    profileIcon: {
+        color: "#23e873",
+        marginTop: 15
+    },
+    optionWrapper: {
+        marginTop: 30,
+        gap: 20
+    }
 })
 
 export default styles
