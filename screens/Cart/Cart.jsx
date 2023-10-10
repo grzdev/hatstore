@@ -1,3 +1,4 @@
+
 import { ActivityIndicator, Text, View } from 'react-native'
 import React, {useState} from 'react'
 import styles from './cart.style'
@@ -14,7 +15,6 @@ const Cart = ({navigation}) => {
 
   const [selected, setSelected] = useState(null)
   const [select, setSelect] = useState(false)
-
 
   return (
     <SafeAreaView

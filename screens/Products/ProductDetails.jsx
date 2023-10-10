@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import WebView from 'react-native-webview'
 
 
+
 const ProductDetails = ({navigation}) => {
   const route = useRoute();
   const {item} = route.params;
@@ -50,7 +51,6 @@ const ProductDetails = ({navigation}) => {
     }
   }
 
-  
   const handleCart  = () => {
     if(!isLoggedIn){
       navigation.navigate('Login')
@@ -344,7 +344,6 @@ const checkFavorites = async () => {
                 </View>
               </View>
             </View> */}
-
 
             {/* Cart row */}
             <View
