@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { COLORS } from '../../constants'
 import { AntDesign, MaterialCommunityIcons, SimpleLineIcons, Ionicons } from "@expo/vector-icons"
-import bgLogo from "../../assets/images/bgLogo.png"
+import bgLogo from "../../assets/images/hatLogo3.png"
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { ScrollView } from 'react-native-gesture-handler'
+import fetchUser from '../../hooks/fetchUser'
 
 const Profile = ({navigation}) => {
   const [ userData, setUserData ] = useState(null)
@@ -68,6 +70,17 @@ const Profile = ({navigation}) => {
     )
   }
 
+  const cacheClear = async () => {
+    const id = await AsyncStorage.getItem('id')
+    const userId = `favorites${JSON.parse(id)}`;
+
+    try {
+      await AsyncStorage.removeItem(userId)
+    } catch (error) {
+      console.log("Error logging out:", error)
+    }
+  }
+
   const clearCache = () => {
     Alert.alert(
       "Clear Cache",
@@ -79,7 +92,7 @@ const Profile = ({navigation}) => {
         },
         {
           text: "Continue",
-          onPress: ()=> console.log("cache cleared")
+          onPress: ()=> cacheClear()
         },
         {
           defaultIndex: 1
@@ -88,25 +101,6 @@ const Profile = ({navigation}) => {
     )
   }
 
-  const deleteUser = () => {
-    Alert.alert(
-      "Delete Account",
-      "Are you sure you want to delete your account?",
-      [
-        {
-          text: "Cancel",
-          onPress: ()=> console.log("cancel delete")
-        },
-        {
-          text: "Continue",
-          onPress: ()=> console.log("account deleted")
-        },
-        {
-          defaultIndex: 1
-        }
-      ]
-    )
-  }
   
   return (
     <View
@@ -142,7 +136,7 @@ const Profile = ({navigation}) => {
                 <Text
                   style={styles.profileText}
                 >
-                  Home to everything stz related
+                  Caps and hats for everyone.
                 </Text>
                 <View
                   style={styles.btnBox}
@@ -196,156 +190,134 @@ const Profile = ({navigation}) => {
 
               </View>
             ) : (
-              <View
-                style={styles.profileWrapper}
-              >
+              <ScrollView>
                 <View
-                  style={styles.upperRow}
+                  style={styles.profileWrapper}
                 >
                   <View
-                    style={styles.upperRowTexts}
+                    style={styles.upperRow}
                   >
-                    <Text
-                      style={styles.title}
+                    <View
+                      style={styles.upperRowTexts}
                     >
-                      My Account
-                    </Text>
-                    <Text
-                      style={styles.username}
-                    >
-                      dmigrz
-                    </Text>
+                      <Text
+                        style={styles.title}
+                      >
+                        My Account
+                      </Text>
+                      
+                    </View>
+                    <Ionicons 
+                      name='person'
+                      style={styles.profileIcon}
+                      size={23}
+                    />
                   </View>
-                  <Ionicons 
-                    name='person'
-                    style={styles.profileIcon}
-                    size={23}
-                  />
+                  <View
+                    style={styles.optionWrapper}
+                  >
+                    <TouchableOpacity
+                      onPress={()=>navigation.navigate("Favorites")}
+                    >
+                      <View
+                        style={styles.menuItem(0.5)}
+                      >
+                        <MaterialCommunityIcons
+                          name='heart-outline'
+                          size={24}
+                          color= {COLORS.lightWhite}
+                          style={{marginLeft: 10}}
+                        />
+                        <Text
+                          style={styles.menuText}
+                        >
+                          Favorites
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+
+                    {/* <TouchableOpacity
+                      onPress={()=>navigation.navigate("Orders")}
+                    >
+                      <View
+                        style={styles.menuItem(0.5)}
+                      >
+                        <MaterialCommunityIcons
+                          name='truck-delivery'
+                          size={26}
+                          color= {COLORS.lightWhite}
+                          style={{marginLeft: 10}}
+                        />
+                        <Text
+                          style={styles.menuText}
+                        >
+                          Orders
+                        </Text>
+                      </View>
+                    </TouchableOpacity> */}
+
+                    <TouchableOpacity
+                      onPress={()=>navigation.navigate("Cart")}
+                    >
+                      <View
+                        style={styles.menuItem(0.5)}
+                      >
+                        <SimpleLineIcons
+                          name='bag'
+                          size={23}
+                          color= {COLORS.lightWhite}
+                          style={{marginLeft: 10}}
+                        />
+                        <Text
+                          style={styles.menuText}
+                        >
+                          Cart
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={()=>clearCache()}
+                    >
+                      <View
+                        style={styles.menuItem(0.5)}
+                      >
+                        <MaterialCommunityIcons
+                          name='cached'
+                          size={24}
+                          color= {COLORS.lightWhite}
+                          style={{marginLeft: 10}}
+                        />
+                        <Text
+                          style={styles.menuText}
+                        >
+                          Clear cache
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={()=>logout()}
+                    >
+                      <View
+                        style={styles.menuItem(0.5)}
+                      >
+                        <AntDesign
+                        name='logout'
+                          size={23}
+                          color= {"#ff3c3c"}
+                          style={{marginLeft: 10}}
+                        />
+                        <Text
+                          style={styles.menuTextRed}
+                        >
+                        Logout
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View
-                  style={styles.optionWrapper}
-                >
-                  <TouchableOpacity
-                    onPress={()=>navigation.navigate("Favorites")}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <MaterialCommunityIcons
-                        name='heart-outline'
-                        size={26}
-                        color= {COLORS.lightWhite}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuText}
-                      >
-                        Favorites
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={()=>navigation.navigate("Orders")}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <MaterialCommunityIcons
-                        name='truck-delivery'
-                        size={26}
-                        color= {COLORS.lightWhite}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuText}
-                      >
-                        Orders
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={()=>navigation.navigate("Cart")}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <SimpleLineIcons
-                        name='bag'
-                        size={26}
-                        color= {COLORS.lightWhite}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuText}
-                      >
-                        Cart
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={()=>clearCache()}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <MaterialCommunityIcons
-                        name='cached'
-                        size={26}
-                        color= {COLORS.lightWhite}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuText}
-                      >
-                        Clear cache
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={()=>deleteUser()}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <AntDesign
-                        name='deleteuser'
-                        size={26}
-                        color= {"#ff3c3c"}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuTextRed}
-                      >
-                        Delete user
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={()=>logout()}
-                  >
-                    <View
-                      style={styles.menuItem(0.5)}
-                    >
-                      <AntDesign
-                       name='logout'
-                        size={26}
-                        color= {"#ff3c3c"}
-                        style={{marginLeft: 10}}
-                      />
-                      <Text
-                        style={styles.menuTextRed}
-                      >
-                       Logout
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              </View>
+              </ScrollView>
             )
           }
         </View>

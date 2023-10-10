@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import styles from './topPicks.style'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import {Ionicons} from "@expo/vector-icons"
 import { COLORS } from '../../constants'
 import ProductList from '../../components/products/ProductList/ProductList'
@@ -12,6 +12,9 @@ const TopPicks = ({navigation}) => {
     <SafeAreaView
      style={styles.container}
     >
+      {/* <ScrollView
+        style={{flex: 1}}
+      > */}
       <View
         style={styles.wrapper}
       >
@@ -30,11 +33,12 @@ const TopPicks = ({navigation}) => {
             <Text
                 style={styles.heading}
             >
-                Products
+                top picks
             </Text>
         </View>
-        <ProductList/> 
+          <ProductList/> 
       </View>
+      {/* </ScrollView> */}
     </SafeAreaView>
   )
 }

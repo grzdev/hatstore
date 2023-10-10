@@ -4,6 +4,7 @@ import useFetch from '../../../hooks/useFetch'
 import { COLORS, SIZES } from '../../../constants';
 import styles from './productList.style';
 import ProductCard from '../ProductCardView/ProductCard';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ProductList = () => {
     const {data, isLoading, error} = useFetch(); 
@@ -71,7 +72,7 @@ const ProductList = () => {
     }
 
     return (
-        <View
+        <SafeAreaView
             style={styles.container}
         >
             <FlatList
@@ -81,7 +82,7 @@ const ProductList = () => {
                 contentContainerStyle={styles.container}
                 ItemSeparatorComponent={()=> <View style={styles.seperator}/>}
             />
-        </View>
+        </SafeAreaView>
     )
   
 }

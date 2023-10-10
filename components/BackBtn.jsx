@@ -12,7 +12,7 @@ const BackBtn = ({onPress}) => {
         <Ionicons
             name='close'
             size={40}
-            color= "#23e873"
+            color= "#ff9975"
         />
     </TouchableOpacity>
   )

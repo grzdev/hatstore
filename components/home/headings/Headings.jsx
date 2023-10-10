@@ -19,10 +19,10 @@ const Headings = () => {
         <Text
             style={styles.headerTitle}
         >
-            new arrivals
+            top picks
         </Text>
         <TouchableOpacity
-          onPress={()=> navigation.navigate("AllProducts")}
+          onPress={()=> navigation.navigate("ProductList")}
         >
             <Ionicons
                 name='ios-grid'

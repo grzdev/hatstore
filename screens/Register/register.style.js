@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         color: COLORS.lightWhite,
         alignItems: "center",
         marginBottom: SIZES.small,
-        marginTop: 120
+        marginTop: 100
     },
     wrapper: {
         marginBottom: 20,
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         textAlign: "center",
         color: COLORS.lightWhite,
+        marginBottom: 40
     }
 })
 

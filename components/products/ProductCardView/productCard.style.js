@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginTop: SIZES.small/2,
         borderRadius: SIZES.small,
         overflow: "hidden",
-        backgroundColor: COLORS.primary,
+        backgroundColor: "#d0aea2",
         justifyContent: "center",
         alignItems: "center"
     },

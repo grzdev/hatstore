@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         backgroundColor: "#001d29",
         borderRadius: SIZES.large,
-        top: SIZES.xxLarge + 20,
+        top: SIZES.xxLarge + 5,
         zIndex: 999
     },
     heading: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     },
     categoryPage: {
         marginLeft: "auto",
+        marginBottom: 10
     },
     seeAll: {
         fontFamily: "semibold",

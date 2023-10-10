@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         color: COLORS.lightWhite,
         alignItems: "center",
         marginBottom: SIZES.small,
-        marginTop: 190
+        marginTop: 150
     },
     wrapper: {
         marginBottom: 20,

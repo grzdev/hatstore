@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         position: "absolute",
-        backgroundColor: "#001d29",
+        backgroundColor: COLORS.primary,
         borderRadius: SIZES.large,
         top: SIZES.large,
         zIndex: 999

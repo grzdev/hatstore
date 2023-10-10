@@ -3,10 +3,11 @@ import { COLORS, SIZES } from "../../constants/index"
 
 const styles = StyleSheet.create({
   logo: {
-    width: 100,
+    width: 140,
     height: 50,
     resizeMode: "cover",
-    // marginLeft: -12
+    // marginLeft: -12,
+    marginTop: -10
   },
   textStyle: {
     fontFamily: "bold",
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   },
   appBarWrapper:{
     marginHorizontal: 22,
-    marginTop: SIZES.small,
+    marginTop: SIZES.xLarge,
     marginBottom: SIZES.small,
   },
   appBar: {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     height: 16,
     borderRadius: 8,
     alignItems: "center",
-    backgroundColor: "green",
+    backgroundColor: "#9e4b2d",
     justifyContent: "center",
     zIndex: 999
   },

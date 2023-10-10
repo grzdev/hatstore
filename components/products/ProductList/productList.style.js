@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignContent: "center",
         justifyContent: "center",
-        marginTop: 130,
+        marginTop:200,
         marginLeft: 10
     },
     loadingContainer: {
@@ -25,9 +25,11 @@ const styles = StyleSheet.create({
         // margin: 10, 
     },
     container: {
+        flex: 1,
         alignItems: "center",
-        paddingTop: SIZES.xxLarge -7,
-        paddingLeft: SIZES.small/2
+        paddingTop: SIZES.xxLarge -15,
+        paddingLeft: SIZES.small/2,
+        marginBottom: 20
     },
     seperator: {
         height: 16,

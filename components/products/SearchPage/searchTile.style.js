@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 70,
-        backgroundColor: COLORS.primary,
+        backgroundColor: "#d0aea2",
         borderRadius: SIZES.medium,
         justifyContent: "center",
         alignItems: "center"

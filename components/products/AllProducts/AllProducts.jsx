@@ -32,7 +32,9 @@ const AllProducts = () => {
                 All Products
             </Text>
         </View>
-      <ScrollView>
+      <ScrollView
+        style={{marginTop: 10}}
+      >
       <View
         style={{flex: 1}}
       >

@@ -6,7 +6,7 @@ const Button = ({title, onPress, isValid, loader}) => {
   return (
     <TouchableOpacity
         onPress={onPress}
-        style={styles.btnStyle(!isValid ? "#585858" : "#129446")}
+        style={styles.btnStyle(!isValid ? "#9e4b2d" : "#ff9975")}
     >
         {
             !loader ? (

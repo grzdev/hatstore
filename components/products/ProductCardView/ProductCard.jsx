@@ -42,15 +42,6 @@ const ProductCard = ({item}) => {
               ₦{item.price}
             </Text>
         </View>
-        <TouchableOpacity
-            style={styles.addBtn}
-        >
-            <Ionicons
-                name='add-circle'
-                size={40}
-                color={COLORS.primary}
-            />
-        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   )
