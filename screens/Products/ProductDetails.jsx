@@ -13,6 +13,9 @@ import WebView from 'react-native-webview'
 
 
 const ProductDetails = ({navigation}) => {
+  const route = useRoute();
+  const {item} = route.params;
+
   const [count, setCount] = useState(1)
   const [ isLoggedIn, setIsLoggedIn ] = useState(false)
   const [ favorites, setFavorites ] = useState(false)
@@ -306,7 +309,7 @@ const checkFavorites = async () => {
             <View style={styles.spacer} />
 
             {/* Location grid */}
-            <View
+            {/* <View
               // style={{ marginTop: SIZES.large}}
             >
               <View
@@ -340,7 +343,7 @@ const checkFavorites = async () => {
                   </Text>
                 </View>
               </View>
-            </View>
+            </View> */}
 
 
             {/* Cart row */}
@@ -348,7 +351,7 @@ const checkFavorites = async () => {
               style={styles.cartRow}
             >
               <TouchableOpacity
-                onPress={()=>{}}
+                onPress={()=>handleBuy()}
                 style={styles.cartBtn}
               >
                 <Text
@@ -377,4 +380,3 @@ const checkFavorites = async () => {
 }
 
 export default ProductDetails
-

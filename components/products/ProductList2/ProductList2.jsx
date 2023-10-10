@@ -1,13 +1,14 @@
 import { FlatList, Text, View, ActivityIndicator } from 'react-native'
 import React from 'react'
-import useFetch from '../../../hooks/useFetch'
+import styles from './productList2.style';
 import { COLORS, SIZES } from '../../../constants';
-import styles from './productList.style';
-import ProductCard from '../ProductCardView/ProductCard';
+import ArticlesCard2 from '../../articles/ArticlesCard2';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import useFetchArticle from '../../../hooks/usefetchArticle';
 
-const ProductList = () => {
-    const {data, isLoading, error} = useFetch(); 
+
+const ProductList2 = () => {
+    const {data, isLoading, error} = useFetchArticle(); 
 
     if(isLoading){
         return (
@@ -71,21 +72,20 @@ const ProductList = () => {
         )
     }
 
-    return (
-        <SafeAreaView
+
+  return (
+     <View
             style={styles.container}
         >
             <FlatList
                 data={data}
                 numColumns={2}
-                renderItem={({item}) => (<ProductCard item={item} />)}
+                renderItem={({item}) => (<ArticlesCard2 item={item} />)}
                 contentContainerStyle={styles.container}
                 ItemSeparatorComponent={()=> <View style={styles.seperator}/>}
             />
-        </SafeAreaView>
-    )
-  
+        </View>
+  )
 }
 
-export default ProductList
-
+export default ProductList2

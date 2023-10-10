@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { SliderBox } from "react-native-image-slider-box"
 import { COLORS, SIZES } from "../../../constants/index"
-import Banner6 from "../../../assets/images/banner6.png"
+import Banner6 from "../../../assets/images/hatstore1.png"
 import Banner7 from "../../../assets/images/banner7.png"
 import Banner8 from "../../../assets/images/banner8.png"
 
@@ -10,8 +10,8 @@ import Banner8 from "../../../assets/images/banner8.png"
 const Carousel2 = () => {
   const slides = [
     Banner6,
-    Banner7,
-    Banner8,
+    // Banner7,
+    // Banner8,
   ]
 
   return (
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "93%",
-    marginTop: 5,
+    marginTop: 10,
     aspectRatio: 16 / 9,
     borderTopLeftRadius: 14, // 1rem equivalent in pixels
     borderTopRightRadius: 0,

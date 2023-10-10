@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons"
 import { COLORS } from '../../../constants'
 import { useNavigation } from '@react-navigation/native'
 
-const Headings = () => {
+const Headings2 = () => {
   const navigation = useNavigation()
 
   return (
@@ -19,10 +19,10 @@ const Headings = () => {
         <Text
             style={styles.headerTitle}
         >
-            top picks
+          on sale
         </Text>
         <TouchableOpacity
-          onPress={()=> navigation.navigate("ProductList")}
+          onPress={()=> navigation.navigate("ArticlePage")}
         >
             <Ionicons
                 name='ios-grid'
@@ -35,4 +35,4 @@ const Headings = () => {
   )
 }
 
-export default Headings
+export default Headings2

@@ -6,6 +6,7 @@ import Button from "./Button"
 import AllProducts from "./products/AllProducts/AllProducts"
 import CartTitle from "./carts/CartTitle"
 import OrderTile from "./orders/OrderTile"
+import ProductList2 from "./products/ProductList2/ProductList2"
 
 export {
     Banner,
@@ -15,5 +16,6 @@ export {
     Button,
     AllProducts,
     CartTitle,
-    OrderTile
+    OrderTile,
+    ProductList2
 }

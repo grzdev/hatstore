@@ -10,6 +10,7 @@ import Favorites from "./Favorites/Favorites";
 import Register from "./Register/Register";
 import Articles from "./Articles/Articles";
 import ArticlePage from "./ArticlePage/ArticlePage";
+import Products2 from "./Products2/Products2";
 
 export {
     Profile,
@@ -24,4 +25,5 @@ export {
     Favorites,
     Register,
     ArticlePage,  
+    Products2
 }

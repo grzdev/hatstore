@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from "../../../constants/index";
+import { COLORS,SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
     loadingRow: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignContent: "center",
         justifyContent: "center",
-        marginTop:200,
+        marginTop: 80,
         marginLeft: 10
     },
     loadingContainer: {

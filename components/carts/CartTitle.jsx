@@ -4,8 +4,32 @@ import styles from './cartTile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AntDesign } from '@expo/vector-icons'
 import { COLORS } from '../../constants'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const CartTitle = ({item, onPress, select}) => {
+
+    // const deleteCart = async (product) => {
+    //     const id = await AsyncStorage.getItem('id');
+    //     const cartId = `cart${JSON.parse(id)}`
+        
+    //     let productId = product;
+  
+    //     try {
+    //       const existingItem = await AsyncStorage.getItem(cartId);
+    //       let cartObj = existingItem ? JSON.parse(existingItem) : {};
+  
+    //       if(cartObj[productId]){
+    //         delete cartObj[productId];
+            
+    //         checkFavorites()
+    //       }
+  
+    //       await AsyncStorage.setItem(cartId, JSON.stringify(cartObj));
+    //     } catch (error) {
+    //       console.log(error)
+    //     }
+    // }
+
   return (
     <TouchableOpacity
         style={styles.cartContainer(!select ? "#fff" : COLORS.secondary)}
@@ -39,7 +63,7 @@ const CartTitle = ({item, onPress, select}) => {
 
         <TouchableOpacity
             style={{paddingBottom: 10, paddingLeft: 75}}
-            onPress={()=> {}}
+            // onPress={()=> deleteCart()}
         >
             <AntDesign
                 name='delete'

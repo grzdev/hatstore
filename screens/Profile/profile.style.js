@@ -15,12 +15,15 @@ const styles = StyleSheet.create({
     profileContainer: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        height: SIZES.height,
+        gap: 120
     },
     bgLogo : {
         width: 180,
-        height: 80,
+        height: 60,
         // resizeMode: "cover",
+        marginTop: 40
     },
     profile:{
         height: 130,
@@ -34,13 +37,13 @@ const styles = StyleSheet.create({
     profileText: {
         fontFamily: "bold",
         fontSize: 24,
-        marginTop: SIZES.small,
-        color: "#23e873",
+        // marginTop: SIZES.small,
+        color: "#ff9975",
         marginHorizontal: 12,
         width: 220,
         textAlign: "center",
         lineHeight: 27,
-        marginTop: 110,
+        // marginTop: 110,
 
     },
     name: {
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
     btnBox: {
         flexDirection: "row",
         gap: 10,
-        marginTop: 140,
+        // marginTop: 200,
     },
     loginBtn: {
         backgroundColor: COLORS.primary,
@@ -65,12 +68,21 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     menuText: {
-        fontFamily: "bold",
+        fontFamily: "regular",
         color: "#ebe9e9",
-        // marginLeft: 8,
-        fontWeight: "600",
+        fontWeight: 600,
         fontSize: 16,
-        lineHeight: 26
+        lineHeight: 26,
+        // marginLeft: 15
+    },
+    menuTextRed: {
+        fontFamily: "regular",
+        color: "#ff3c3c",
+        // marginLeft: 8,
+        fontWeight: 500,
+        fontSize: 17,
+        lineHeight: 26,
+        marginLeft: 15
     },
     loginBtn2: {
         backgroundColor: "#ebe9e9",
@@ -89,7 +101,7 @@ const styles = StyleSheet.create({
         // marginLeft: 8,
         fontWeight: "600",
         fontSize: 16,
-        lineHeight: 26
+        lineHeight: 26,
     },
     menuWrapper: {
         marginTop: SIZES.xLarge,
@@ -97,10 +109,10 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightWhite,
         borderRadius: 12
     },
-    menuItem: (borderBottomWidth) => ({
-        borderBottomWidth: borderBottomWidth,
+    menuItem: (borderWidth) => ({
+        borderWidth: borderWidth,
         flexDirection: "row",
-        paddingVertical: 15,
+        paddingVertical: 20,
         paddingHorizontal: 15,
         borderColor: COLORS.gray,
         borderTopLeftRadius: 10,
@@ -113,19 +125,21 @@ const styles = StyleSheet.create({
 
     profileWrapper: {
         flex: 1,
+        // marginTop: -30
     },
     upperRow:{
         marginTop: 100,
         flexDirection: "row",
-        gap: 120
+        gap: 120,
+        marginTop: -5
     },
     upperRowTexts:{
-        flexDirection: "column"
+        flexDirection: "column",
     },
     title: {
         color: COLORS.lightWhite,
         fontSize: SIZES.large +10,
-        fontWeight: 700
+        fontWeight: 700,
     },
     username: {
         color: COLORS.gray2,
@@ -134,12 +148,13 @@ const styles = StyleSheet.create({
         marginTop: 3
     },
     profileIcon: {
-        color: "#23e873",
-        marginTop: 15
+        color: "#ff9975",
+        marginTop: 8
     },
     optionWrapper: {
         marginTop: 30,
-        gap: 20
+        gap: 20,
+        marginBottom: 120
     }
 })
 

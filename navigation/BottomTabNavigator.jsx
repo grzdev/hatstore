@@ -1,9 +1,10 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home, Search, Articles, Profile } from '../screens'
 import {Ionicons} from "@expo/vector-icons"
 import { COLORS } from "../constants/index"
+import LoadingScreen from './LoadingScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ const screenOptions = {
   headerShown: false,
   tabBarStyle: {
     position: "absolute",
-    bottom: 20,
+    bottom: 0,
     right: 0,
     left: 0,
     elevation: 0,
@@ -25,52 +26,69 @@ const screenOptions = {
   }
 }
 
+
 const BottomTabNavigator = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay (e.g., 3 seconds) before setting isLoading to false.
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the duration as needed
+  }, []);
+
   return (
-    <Tab.Navigator
-      screenOptions={screenOptions}
-    >
-      <Tab.Screen 
-        name='Home'
-        component={Home}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Ionicons name={focused ? "home" : "home-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
-          }
-        }}
-      />
-      <Tab.Screen 
-        name='Search'
-        component={Search}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Ionicons name={"search-sharp"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
-          }
-        }}
-      />
-      <Tab.Screen 
-        name='Articles'
-        component={Articles}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Ionicons name={focused ? "newspaper" : "newspaper-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
-          }
-        }}
-      />
-      <Tab.Screen 
-        name='Profile'
-        component={Profile}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Ionicons name={focused ? "person" : "person-outline"} 
-            size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
-          }
-        }}
-      />
-    </Tab.Navigator>
+    <View style={{ flex: 1 }}>
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+
+        <Tab.Navigator
+          screenOptions={screenOptions}
+        >
+          <Tab.Screen 
+            name='Home'
+            component={Home}
+            options={{
+              tabBarIcon: ({focused}) => {
+                return <Ionicons name={focused ? "home" : "home-outline"} 
+                size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
+              }
+            }}
+          />
+          <Tab.Screen 
+            name='Search'
+            component={Search}
+            options={{
+              tabBarIcon: ({focused}) => {
+                return <Ionicons name={"search-sharp"} 
+                size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
+              }
+            }}
+          />
+          {/* <Tab.Screen 
+            name='Articles'
+            component={Articles}
+            options={{
+              tabBarIcon: ({focused}) => {
+                return <Ionicons name={focused ? "newspaper" : "newspaper-outline"} 
+                size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
+              }
+            }}
+          /> */}
+          <Tab.Screen 
+            name='Profile'
+            component={Profile}
+            options={{
+              tabBarIcon: ({focused}) => {
+                return <Ionicons name={focused ? "person" : "person-outline"} 
+                size={24} color={focused ? COLORS.primary : COLORS.gray2} style={{marginTop: 5}}/>
+              }
+            }}
+          />
+        </Tab.Navigator>
+      )}
+    </View>
   )
 }
 
