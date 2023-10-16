@@ -11,6 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import WebView from 'react-native-webview'
 
 
+
 const ProductDetails = ({navigation}) => {
   const route = useRoute();
   const {item} = route.params;
@@ -49,7 +50,6 @@ const ProductDetails = ({navigation}) => {
     }
   }
 
-  
   const handleCart  = () => {
     if(!isLoggedIn){
       navigation.navigate('Login')
@@ -308,6 +308,43 @@ const checkFavorites = async () => {
             </View>
             
             <View style={styles.spacer} />
+
+            {/* Location grid */}
+            {/* <View
+              // style={{ marginTop: SIZES.large}}
+            >
+              <View
+                style={styles.location}
+              >
+                <View
+                  style={{flexDirection: "row"}}
+                >
+                  <Ionicons
+                    name='location-outline'
+                    size={20}
+                  />
+                  <Text
+                    style={{alignSelf: "center", marginLeft: 4, marginRight: 4}}
+                  >
+                    Ilorin
+                  </Text>
+                </View>
+
+                <View
+                  style={{flexDirection: "row"}}
+                >
+                  <MaterialCommunityIcons
+                    name='truck-delivery-outline'
+                    size={25}
+                  />
+                  <Text
+                    style={{alignSelf: "center", marginLeft: 10, marginRight: 10}}
+                  >
+                    Free Delivery
+                  </Text>
+                </View>
+              </View>
+            </View> */}
 
             {/* Cart row */}
             <View

@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     },
     upperRowTexts:{
         flexDirection: "column",
+
     },
     title: {
         color: COLORS.lightWhite,
