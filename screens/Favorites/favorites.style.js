@@ -35,12 +35,18 @@ const styles = StyleSheet.create({
         borderRadius: SIZES.medium,
         justifyContent: "center",
         alignItems: "center",
+        // backgroundColor: "#d0aea2"
     },
     image: {
         width: "100%",
         height: 65,
         borderRadius: SIZES.medium,
         resizeMode: "cover"
+    },
+    emptyMsg: {
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 80
     },
     textContainer: {
         flex: 1,

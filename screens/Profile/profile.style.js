@@ -67,13 +67,20 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    menuTex: {
+        fontFamily: "regular",
+        color: "#ebe9e9",
+        fontWeight: 600,
+        fontSize: 16,
+        lineHeight: 26,
+    },
     menuText: {
         fontFamily: "regular",
         color: "#ebe9e9",
         fontWeight: 600,
         fontSize: 16,
         lineHeight: 26,
-        // marginLeft: 15
+        marginLeft: 15
     },
     menuTextRed: {
         fontFamily: "regular",

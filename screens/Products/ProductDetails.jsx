@@ -4,7 +4,6 @@ import styles from './productDetails.style'
 import { Fontisto, Ionicons, SimpleLineIcons, MaterialCommunityIcons } from "@expo/vector-icons"
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { COLORS, SIZES } from '../../constants'
-import blank from "../../assets/images/blank.png"
 import { useRoute } from '@react-navigation/native'
 import AddToCart from '../../hooks/addToCart'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -61,33 +60,38 @@ const ProductDetails = ({navigation}) => {
   
   const creatCheckOut = async () => {
     const id = await AsyncStorage.getItem("id")
+    const parsedUserId = JSON.parse(id);
+
+    const cartItem = {
+      name: item.title,
+      id: item._id,
+      price: item.price,
+      cartQuantity: count,
+    };
+
+    const payload = {
+      userId: parsedUserId,
+      cartItems: [cartItem],
+    };
     
-    const response = await fetch("https://stzhub-payment-production.up.railway.app/stripe/create-checkout-session", {
+    const response = await fetch("https://hatstoreserver-production.up.railway.app/stripe/create-checkout-session", {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
       },
-      body: JSON.stringify({
-        userId: JSON.parse(id),
-        cartItems: [
-          {
-            name: item.title,
-            id: item._id,
-            price: item.price,
-            cartQuantity: count
-          }
-        ]
-      })
+      body: JSON.stringify(payload)
     });
     const {url} = await response.json(); 
     setPaymentUrl(url)
+    console.log(url)
   }
+  
   
   const onNavigationStateChange = (webViewState) => {
     const {url} = webViewState;
 
     if(url && url.includes('checkout-success')){
-      navigation.navigate('Orders')
+      navigation.navigate('Home')
     }else if (url && url.includes('cancel')){
       navigation.goBack()
     }
@@ -248,18 +252,15 @@ const checkFavorites = async () => {
               <View
                 style={styles.rating}
               >
-                {[1,2,3,4,5].map((index)=>(
                   <Ionicons
-                    key={index}
                     name="star"
                     size={21}
                     color="gold"
                   />
-                ))}
                 <Text
                   style={styles.ratingText}
                 >
-                  (4.9)
+                ({item.rating})
                 </Text>
               </View>
 
@@ -308,44 +309,6 @@ const checkFavorites = async () => {
             
             <View style={styles.spacer} />
 
-            {/* Location grid */}
-            {/* <View
-              // style={{ marginTop: SIZES.large}}
-            >
-              <View
-                style={styles.location}
-              >
-                <View
-                  style={{flexDirection: "row"}}
-                >
-                  <Ionicons
-                    name='location-outline'
-                    size={20}
-                  />
-                  <Text
-                    style={{alignSelf: "center", marginLeft: 4, marginRight: 4}}
-                  >
-                    Ilorin
-                  </Text>
-                </View>
-
-                <View
-                  style={{flexDirection: "row"}}
-                >
-                  <MaterialCommunityIcons
-                    name='truck-delivery-outline'
-                    size={25}
-                  />
-                  <Text
-                    style={{alignSelf: "center", marginLeft: 10, marginRight: 10}}
-                  >
-                    Free Delivery
-                  </Text>
-                </View>
-              </View>
-            </View> */}
-
-
             {/* Cart row */}
             <View
               style={styles.cartRow}
@@ -361,7 +324,7 @@ const checkFavorites = async () => {
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={()=> handleCart()}
                 style={styles.addCart}
               >
@@ -370,7 +333,7 @@ const checkFavorites = async () => {
                   size={22}
                   color={COLORS.lightWhite}
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </View>

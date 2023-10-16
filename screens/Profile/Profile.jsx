@@ -149,7 +149,7 @@ const Profile = ({navigation}) => {
                       style={styles.loginBtn}
                     >
                       <Text
-                        style={styles.menuText}
+                        style={styles.menuTex}
                       >
                         LOGIN
                       </Text>
@@ -190,7 +190,7 @@ const Profile = ({navigation}) => {
 
               </View>
             ) : (
-              <ScrollView>
+              // <ScrollView>
                 <View
                   style={styles.profileWrapper}
                 >
@@ -256,7 +256,7 @@ const Profile = ({navigation}) => {
                       </View>
                     </TouchableOpacity> */}
 
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                       onPress={()=>navigation.navigate("Cart")}
                     >
                       <View
@@ -274,7 +274,7 @@ const Profile = ({navigation}) => {
                           Cart
                         </Text>
                       </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
                     <TouchableOpacity
                       onPress={()=>clearCache()}
@@ -317,7 +317,7 @@ const Profile = ({navigation}) => {
                     </TouchableOpacity>
                   </View>
                 </View>
-              </ScrollView>
+              // </ScrollView>
             )
           }
         </View>

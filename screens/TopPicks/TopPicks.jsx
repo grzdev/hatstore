@@ -12,9 +12,9 @@ const TopPicks = ({navigation}) => {
     <SafeAreaView
      style={styles.container}
     >
-      {/* <ScrollView
+      <ScrollView
         style={{flex: 1}}
-      > */}
+      >
       <View
         style={styles.wrapper}
       >
@@ -36,9 +36,9 @@ const TopPicks = ({navigation}) => {
                 top picks
             </Text>
         </View>
-          <ProductList/> 
+        <ProductList/> 
       </View>
-      {/* </ScrollView> */}
+      </ScrollView>
     </SafeAreaView>
   )
 }
