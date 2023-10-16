@@ -5,6 +5,7 @@ import { Home, Search, Articles, Profile } from '../screens'
 import {Ionicons} from "@expo/vector-icons"
 import { COLORS } from "../constants/index"
 import LoadingScreen from './LoadingScreen'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Tab = createBottomTabNavigator();
 
@@ -31,10 +32,9 @@ const BottomTabNavigator = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading delay (e.g., 3 seconds) before setting isLoading to false.
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Adjust the duration as needed
+    }, 3000);
   }, []);
 
   return (

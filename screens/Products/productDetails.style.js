@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
      ratingText: {
         color: COLORS.gray,
         fontFamily: "medium",
-        paddingHorizontal: SIZES.xSmall,
+        paddingHorizontal: SIZES.small,
         alignSelf: "center"
      },
      

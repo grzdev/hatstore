@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler'
 import { Ionicons, SimpleLineIcons } from "@expo/vector-icons"
 import { COLORS } from '../../constants'
+import EmptyImage from "../../assets/images/emptyImg.png"
 
 const Favorites = ({navigation}) => {
 
@@ -84,46 +85,57 @@ const Favorites = ({navigation}) => {
         </Text>
       </View>
 
-      <FlatList
-        data={favData}
-        renderItem={({ item }) => (
-          <View
-            style={styles.favContainer}
-          >
+      {favData.length === 0 ? (
+        <View
+          style={styles.emptyMsg}
+        >
+         <Image
+          source={EmptyImage}
+          style={styles.img}
+         />
+        </View>
+      ): (
+        <FlatList
+          data={favData}
+          renderItem={({ item }) => (
             <View
-              style={styles.imageContainer}
+              style={styles.favContainer}
             >
-              <Image
-                source={{uri: item.imageUrl}}
-                style={styles.image}
+              <View
+                style={styles.imageContainer}
+              >
+                <Image
+                  source={{uri: item.imageUrl}}
+                  style={styles.image}
+                />
+              </View>
+
+              <View
+                style={styles.textContainer}
+              >
+                <Text
+                  style={styles.fav}
+                >
+                  {item.title}
+                </Text>
+                <Text
+                  style={styles.price}
+                >
+                  ₦{item.price}
+                </Text>
+              </View>
+
+              <SimpleLineIcons
+                onPress={()=> deleteFavorites(item.id)}
+                name='trash'
+                size={24}
+                color={COLORS.red}
               />
             </View>
-
-            <View
-              style={styles.textContainer}
-            >
-              <Text
-                style={styles.fav}
-              >
-                {item.title}
-              </Text>
-              <Text
-                style={styles.price}
-              >
-                ₦{item.price}
-              </Text>
-            </View>
-
-            <SimpleLineIcons
-              onPress={()=> deleteFavorites(item.id)}
-              name='trash'
-              size={24}
-              color={COLORS.red}
-            />
-          </View>
-        )}
-        keyExtractor={(item, index)=> index.toString()}
-      />
+          )}
+          keyExtractor={(item, index)=> index.toString()}
+        />
+      )}
     </SafeAreaView>
   )
 }

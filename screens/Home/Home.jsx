@@ -30,21 +30,13 @@ const Home = () => {
           <View 
             style={{alignItems: "flex-end"}}
           >
-            <View 
-              style={styles.cartCount}
-            >
-              <Text 
-                style={styles.cartNumber}
-              >
-                3
-              </Text>
-            </View>
             <TouchableOpacity
-              onPress={()=> navigation.navigate("Cart")}
+              onPress={()=> navigation.navigate("Favorites")}
             >
-              <MaterialIcons 
-                name='shopping-bag' 
-                size={24}
+              <Ionicons
+                name='heart' 
+                size={25}
+                color={COLORS.primary}
               />
             </TouchableOpacity>
           </View>
@@ -58,7 +50,7 @@ const Home = () => {
           >
             <Ionicons 
               name='search' 
-              size={26}
+              size={24}
               style={{color: COLORS.primary}}
             />
           </TouchableOpacity>
